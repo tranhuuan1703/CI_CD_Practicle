@@ -1,29 +1,29 @@
 name: CI
 
-# controls when the workflow will run
+
 on: [ push ]
 
 jobs:
   build:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v1
-        with:
-          python-version: 3.8
-      - name: Install dependencies
-        runs: |
-          make install
-      - name: Lint with pylint
-        runs: |
-          make lint
-      - name: Test with pytest
-        runs: |
-          make test
-      - name: Format code
-        runs: |
-          make format
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        make install
+    - name: Lint with pylint
+      run: |
+        make lint
+    - name: Test with pytest
+      run: |
+        make test
+    - name: Format code
+      run: |
+        make format
 
           
